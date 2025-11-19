@@ -17,20 +17,4 @@ public class Utilisateur {
             mv.setData("texte", "Bonjour tout le monde ! 👋 Bienvenue sur notre framework.");
             return mv;
         }
-
-        @Url("test")
-        public ModelView methodeTest() {
-            ModelView mv = new ModelView("/test.jsp");
-            mv.setData("resultat", "Ceci est un test réussi ! ✅");
-            return mv;
-        }
-
-        @Url("info")
-        public ModelView getInfo() {
-            ModelView mv = new ModelView("/info.jsp");
-            mv.setData("framework", "MonFramework");
-            mv.setData("date", new java.util.Date());
-            mv.setData("utilisateur", "Testeur");
-            return mv;
-        }
 }
