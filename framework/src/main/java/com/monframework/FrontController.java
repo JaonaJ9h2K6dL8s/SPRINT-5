@@ -2,6 +2,7 @@ package com.monframework;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -55,13 +56,12 @@ public class FrontController extends HttpServlet {
                     ModelView modelView = (ModelView) result;
                     System.out.println("✅ ModelView reçu - Vue: " + modelView.getView());
                     
-                    // Passer les données à la vue - CORRECTION: getData() n'existe pas dans ModelView
-                    // On suppose que vous voulez stocker un objet dans l'attribut "data"
-                    // Si ModelView a des données, elles devraient être accessibles via d'autres méthodes
+                    // ✅ AJOUTER CETTE LIGNE - Passer les données à la requête
+                    for (Map.Entry<String, Object> entry : modelView.getData().entrySet()) {
+                        request.setAttribute(entry.getKey(), entry.getValue());
+                    }
                     
-                    // Forward vers la vue spécifiée
                     request.getRequestDispatcher(modelView.getView()).forward(request, response);
-                    
                 } else if (result instanceof String) {
                     // 🔥 COMPATIBILITÉ : Si retour String direct
                     String resultString = (String) result;

@@ -4,7 +4,7 @@ import com.monframework.ModelView;
 import com.monframework.Url;
 
 public class Utilisateur {
-    @Url("merci")
+        @Url("merci")
         public ModelView getMerciMonamie() {
             ModelView mv = new ModelView("/merci.jsp");
             mv.setData("message", "Merci mon amie ❤️");

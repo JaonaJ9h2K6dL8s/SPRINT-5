@@ -29,8 +29,8 @@ if not exist "%TEST_DIR%" (
     mkdir "%TEST_DIR%"
 )
 
-if exist "%FRAMEWORK_DIR%\target\sprint5bis-core.jar" (
-    copy /Y "%FRAMEWORK_DIR%\target\sprint5bis-core.jar" "%TEST_DIR%"
+if exist "%FRAMEWORK_DIR%\target\sprint5-core.jar" (
+    copy /Y "%FRAMEWORK_DIR%\target\sprint5-core.jar" "%TEST_DIR%"
     echo ✅ Fichiers copiés vers: %TEST_DIR%
 ) else (
     echo ❌ Fichiers non trouvés dans %FRAMEWORK_DIR%\target\
@@ -62,11 +62,11 @@ if not exist %TOMCAT_WEBAPPS% (
 )
 
 REM Se positionner dans le dossier test
-cd /d "D:\S5\Mr Naina\Projet_sprint5bis\test"
+cd /d "C:\Users\Zed\Documents\GitHub\Projet_Sprint5\test"
 
 if errorlevel 1 (
     echo ❌ ERREUR: Impossible d'acceder au dossier test
-    echo Verifiez le chemin: D:\S5\Mr Naina\Projet_sprint5bis\test
+    echo Verifiez le chemin: C:\Users\Zed\Documents\GitHub\Projet_Sprint5\test
     pause
     exit /b 1
 )
@@ -84,7 +84,7 @@ if errorlevel 1 (
 echo ✅ Compilation Maven reussie!
 
 echo [2/3] Verification du WAR...
-set WAR_FILE=target\sprint5bis.war
+set WAR_FILE=target\sprint5-core.war
 
 if not exist "%WAR_FILE%" (
     echo ❌ ERREUR: Fichier WAR non genere: %WAR_FILE%

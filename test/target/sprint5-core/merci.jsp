@@ -6,5 +6,7 @@
 <body>
     <h1>Merci mon amie ! ❤️</h1>
     <p>Je suis content que tu sois là.</p>
+    
+    <%= request.getAttribute("message") %>
 </body>
 </html>
